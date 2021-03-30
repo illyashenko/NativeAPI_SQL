@@ -1,0 +1,7 @@
+LIBRARY    "AddInNativeSql"
+
+EXPORTS
+GetClassObject
+DestroyObject
+GetClassNames
+SetPlatformCapabilities

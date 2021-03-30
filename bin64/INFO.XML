@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<drivers>
+<component progid="AddIn.AddInNativeSql" type="sql_driver" name="ApiNative_SQL" version="4.2"/>
+</drivers>
