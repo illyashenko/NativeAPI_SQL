@@ -5,13 +5,13 @@
 #define BASE_ERRNO     7
 
 static const wchar_t* g_PropNames[] = {
-	L"ConnectionString", L"QuertyString"
+	L"ConnectionString", L"QueryString"
 };
 static const wchar_t* g_MethodNames[] = {
 	L"Execute" };
 
 static const wchar_t* g_PropNamesRu[] = {
-	L"ConnectionString", L"QuertyString"
+	L"ConnectionString", L"QueryString"
 };
 static const wchar_t* g_MethodNamesRu[] = {
 	L"Execute" };
@@ -181,7 +181,7 @@ bool CAddInNative::GetPropVal(const long lPropNum, tVariant* pvarPropVal)
 		wstring_to_p(m_uiConnectionString, pvarPropVal);
 		break;
 	case ePropQuertyString:
-		wstring_to_p(m_uiQuertyString, pvarPropVal);
+		wstring_to_p(m_uiQueryString, pvarPropVal);
 		break;
 	default:
 		return false;
@@ -202,7 +202,7 @@ bool CAddInNative::SetPropVal(const long lPropNum, tVariant* varPropVal)
 	case ePropQuertyString:
 		if (TV_VT(varPropVal) != VTYPE_PWSTR)
 			return false;
-		m_uiQuertyString = TV_WSTR(varPropVal);
+		m_uiQueryString = TV_WSTR(varPropVal);
 		break;
 	default:
 		return false;
@@ -360,9 +360,9 @@ bool CAddInNative::CallAsFunc(const long lMethodNum,
 	case eMethExecute:
 
 		std::string conStr(m_uiConnectionString.begin(), m_uiConnectionString.end());
-		std::string quertyString(m_uiQuertyString.begin(), m_uiQuertyString.end());
+		std::string quertyString(m_uiQueryString.begin(), m_uiQueryString.end());
 
-		vector<map<string, string>> result_vector = ProcessSqlQuery(&m_uiConnectionString[0], &m_uiQuertyString[0], mis);
+		vector<map<string, string>> result_vector = ProcessSqlQuery(&m_uiConnectionString[0], &m_uiQueryString[0], mis);
 		string wstr_ = GetJsonString(result_vector);
 
 		if (mis)

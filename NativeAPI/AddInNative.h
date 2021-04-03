@@ -86,7 +86,7 @@ private:
 	IMemoryManager* m_iMemory;
 
 	std::wstring m_uiConnectionString;
-	std::wstring m_uiQuertyString;
+	std::wstring m_uiQueryString;
 	
 	uint32_t     m_uiTimer;
 #if !defined( __linux__ ) && !defined(__APPLE__)
